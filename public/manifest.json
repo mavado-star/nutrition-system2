@@ -1,0 +1,20 @@
+{
+  "name": "MASOLO LABS - Nutrition System",
+  "short_name": "MASOLO LABS",
+  "start_url": "/login",
+  "display": "standalone",
+  "background_color": "#f1f5f9",
+  "theme_color": "#2563eb",
+  "icons": [
+    {
+      "src": "/masolo-health.jpeg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "/masolo-health.jpeg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}
