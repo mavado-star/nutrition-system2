@@ -20,8 +20,11 @@
                 MASOLO LABS
             </a>
             <div style="display:flex;gap:15px;align-items:center">
-                <span style="font-size:13px">{{ Auth::user()->email ?? '' }}</span>
-                <form method="POST" action="{{ route('logout') }}">@csrf<button class="btn btn-sm btn-outline-danger">Logout</button></form>
+                <span style="font-size:13px">{{ Auth::user()->email ?? '' }}</span> <form method="POST" action="/logout">
+  @csrf
+  <button type="submit">Logout</button>
+</form>
+               
             </div>
         </div>
     </nav>

@@ -1,49 +1,79 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Super Admin - Clinics</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-<div class="container mt-4">
-    <h2>Super Admin - All Clinics</h2>
-    <p>Logged as: {{ auth()->user()->email }} ({{ auth()->user()->role }})</p>
-    
-    <a href="{{ url('/super-admin/clinics/create') }}" class="btn btn-primary mb-3">+ Add New Clinic</a>
-    <a href="{{ url('/dashboard') }}" class="btn btn-secondary mb-3">Back to Dashboard</a>
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            All Hospitals - Super Admin (Ministry of Health)
+        </h2>
+    </x-slot>
 
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>District</th>
-                <th>Phone</th>
-                <th>Status</th>
-                <th>Expires</th>
-                <th>Children</th>
-                <th>Users</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($clinics as $clinic)
-            <tr>
-                <td>{{ $clinic->id }}</td>
-                <td>{{ $clinic->name }}</td>
-                <td>{{ $clinic->district }}</td>
-                <td>{{ $clinic->phone }}</td>
-                <td><span class="badge bg-{{ $clinic->subscription_status == 'active' ? 'success' : 'danger' }}">{{ $clinic->subscription_status }}</span></td>
-                <td>{{ $clinic->subscription_ends_at }}</td>
-                <td>{{ $clinic->children_count ?? 0 }}</td>
-                <td>{{ $clinic->users_count ?? 0 }}</td>
-                <td>
-                    <a href="{{ url('/super-admin/clinics/'.$clinic->id.'/edit') }}" class="btn btn-sm btn-warning">Edit / Renew</a>
-                </td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
-</div>
-</body>
-</html>
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-gray-900">
+                    
+                    @if(session('success'))
+                        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full table-auto border-collapse">
+                            <thead>
+                                <tr class="bg-gray-200">
+                                    <th class="border px-4 py-2 text-left">#</th>
+                                    <th class="border px-4 py-2 text-left">Hospital Name</th>
+                                    <th class="border px-4 py-2 text-left">District</th>
+                                    <th class="border px-4 py-2 text-left">Admin Name</th>
+                                    <th class="border px-4 py-2 text-left">Email</th>
+                                    <th class="border px-4 py-2 text-left">Status</th>
+                                    <th class="border px-4 py-2 text-left">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @forelse($clinics as $index => $clinic)
+                                <tr class="hover:bg-gray-50">
+                                    <td class="border px-4 py-2">{{ $index + 1 }}</td>
+                                    <td class="border px-4 py-2 font-semibold">{{ $clinic->clinic_name }}</td>
+                                    <td class="border px-4 py-2">
+                                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-bold">
+                                            {{ $clinic->district ?? 'N/A' }}
+                                        </span>
+                                    </td>
+                                    <td class="border px-4 py-2">{{ $clinic->name }}</td>
+                                    <td class="border px-4 py-2">{{ $clinic->email }}</td>
+                                    <td class="border px-4 py-2">
+                                        @if($clinic->is_approved)
+                                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Approved</span>
+                                        @else
+                                            <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">Pending</span>
+                                        @endif
+                                    </td>
+                                    <td class="border px-4 py-2">
+                                        @if(!$clinic->is_approved)
+                                        <form method="POST" action="{{ url('/super-admin/clinics/'.$clinic->id.'/approve') }}">
+                                            @csrf
+                                            <button type="submit" class="bg-green-600 hover:bg-green-700 text-white px-4 py-1 rounded text-sm">
+                                                Approve
+                                            </button>
+                                        </form>
+                                        @else
+                                            <span class="text-gray-400 text-sm">✓ Approved</span>
+                                        @endif
+                                    </td>
+                                </tr>
+                                @empty
+                                <tr>
+                                    <td colspan="7" class="border px-4 py-8 text-center text-gray-500">
+                                        No hospitals registered yet.
+                                    </td>
+                                </tr>
+                                @endforelse
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</x-app-layout>
