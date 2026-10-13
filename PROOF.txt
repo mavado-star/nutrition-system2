@@ -1,0 +1,156 @@
+commit 4aeaab475cdca466910f83a81c20f175dccf95bc
+Author:     Masolo Joel <masolo@labs.com>
+AuthorDate: Tue Oct 13 09:41:51 2026 +0300
+Commit:     Masolo Joel <masolo@labs.com>
+CommitDate: Tue Oct 13 09:41:51 2026 +0300
+
+    docs: AUTHOR proof - Masolo Joel owner
+
+ AUTHOR.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit f1648c18f05f43e226cde75b129150383397f63e
+Author:     Masolo Joel <masolo@labs.com>
+AuthorDate: Tue Oct 13 00:56:42 2026 +0300
+Commit:     Masolo Joel <masolo@labs.com>
+CommitDate: Tue Oct 13 00:56:42 2026 +0300
+
+    feat: MASOLO LABS login + PWA - I built it
+
+ .editorconfig                                      |   18 +
+ .env.example                                       |   52 +
+ .gitattributes                                     |   10 +
+ .gitignore                                         |   15 +
+ .styleci.yml                                       |   14 +
+ README.md                                          |   64 +
+ app/Console/Kernel.php                             |   32 +
+ app/Exceptions/Handler.php                         |   41 +
+ .../Auth/AuthenticatedSessionController.php        |   54 +
+ .../Auth/ConfirmablePasswordController.php         |   44 +
+ .../EmailVerificationNotificationController.php    |   27 +
+ .../Auth/EmailVerificationPromptController.php     |   23 +
+ .../Controllers/Auth/NewPasswordController.php     |   65 +
+ .../Auth/PasswordResetLinkController.php           |   47 +
+ .../Controllers/Auth/RegisteredUserController.php  |   54 +
+ .../Controllers/Auth/VerifyEmailController.php     |   30 +
+ app/Http/Controllers/Childcontroller.php           |   71 +
+ app/Http/Controllers/Controller.php                |   13 +
+ app/Http/Controllers/DashboardController.php       |   12 +
+ app/Http/Kernel.php                                |   67 +
+ app/Http/Middleware/Authenticate.php               |   21 +
+ app/Http/Middleware/EncryptCookies.php             |   17 +
+ .../PreventRequestsDuringMaintenance.php           |   17 +
+ app/Http/Middleware/RedirectIfAuthenticated.php    |   32 +
+ app/Http/Middleware/TrimStrings.php                |   19 +
+ app/Http/Middleware/TrustHosts.php                 |   20 +
+ app/Http/Middleware/TrustProxies.php               |   28 +
+ app/Http/Middleware/VerifyCsrfToken.php            |   17 +
+ app/Http/Requests/Auth/LoginRequest.php            |   93 +
+ app/Models/Child.php                               |   22 +
+ app/Models/User.php                                |   44 +
+ app/Providers/AppServiceProvider.php               |   28 +
+ app/Providers/AuthServiceProvider.php              |   30 +
+ app/Providers/BroadcastServiceProvider.php         |   21 +
+ app/Providers/EventServiceProvider.php             |   32 +
+ app/Providers/RouteServiceProvider.php             |   63 +
+ app/View/Components/AppLayout.php                  |   18 +
+ app/View/Components/GuestLayout.php                |   18 +
+ artisan                                            |   53 +
+ bootstrap/app.php                                  |   55 +
+ bootstrap/cache/.gitignore                         |    2 +
+ composer.json                                      |   63 +
+ composer.lock                                      | 7871 ++++++++++++++++++++
+ config/app.php                                     |  235 +
+ config/auth.php                                    |  111 +
+ config/broadcasting.php                            |   64 +
+ config/cache.php                                   |  110 +
+ config/cors.php                                    |   34 +
+ config/database.php                                |  147 +
+ config/filesystems.php                             |   73 +
+ config/hashing.php                                 |   52 +
+ config/logging.php                                 |  118 +
+ config/mail.php                                    |  118 +
+ config/queue.php                                   |   93 +
+ config/sanctum.php                                 |   65 +
+ config/services.php                                |   33 +
+ config/session.php                                 |  201 +
+ config/view.php                                    |   36 +
+ database/.gitignore                                |    1 +
+ database/factories/UserFactory.php                 |   39 +
+ .../024_01_01_000001_create_audit_trails_table.php |    8 +
+ .../2014_10_12_000000_create_users_table.php       |   36 +
+ ...4_10_12_100000_create_password_resets_table.php |   32 +
+ .../2019_08_19_000000_create_failed_jobs_table.php |   36 +
+ ..._000001_create_personal_access_tokens_table.php |   36 +
+ .../2026_10_12_155406_create_children_table.php    |   15 +
+ database/seeders/DatabaseSeeder.php                |   18 +
+ package.json                                       |   22 +
+ phpunit.xml                                        |   31 +
+ postcss.config.js                                  |    6 +
+ public/.htaccess                                   |   21 +
+ public/favicon.ico                                 |    0
+ public/images/masolo-health.jpeg                   |  Bin 0 -> 55226 bytes
+ public/index.php                                   |   55 +
+ public/manifest.json                               |   20 +
+ public/masolo-health.jpeg                          |  Bin 0 -> 55226 bytes
+ public/robots.txt                                  |    2 +
+ public/sw.js                                       |    7 +
+ resources/css/app.css                              |    3 +
+ resources/js/app.js                                |    7 +
+ resources/js/bootstrap.js                          |   28 +
+ resources/lang/en/auth.php                         |   20 +
+ resources/lang/en/pagination.php                   |   19 +
+ resources/lang/en/passwords.php                    |   22 +
+ resources/lang/en/validation.php                   |  163 +
+ resources/views/auth/confirm-password.blade.php    |   36 +
+ resources/views/auth/forgot-password.blade.php     |   36 +
+ resources/views/auth/login.blade.php               |   44 +
+ resources/views/auth/register.blade.php            |   20 +
+ resources/views/auth/reset-password.blade.php      |   48 +
+ resources/views/auth/verify-email.blade.php        |   39 +
+ resources/views/children/create.blade.php          |  104 +
+ resources/views/children/index.blade.php           |   65 +
+ .../views/components/application-logo.blade.php    |    3 +
+ resources/views/components/auth-card.blade.php     |    9 +
+ .../views/components/auth-session-status.blade.php |    7 +
+ .../components/auth-validation-errors.blade.php    |   15 +
+ resources/views/components/button.blade.php        |    3 +
+ resources/views/components/dropdown-link.blade.php |    1 +
+ resources/views/components/dropdown.blade.php      |   43 +
+ resources/views/components/input.blade.php         |    3 +
+ resources/views/components/label.blade.php         |    5 +
+ resources/views/components/nav-link.blade.php      |   11 +
+ .../views/components/responsive-nav-link.blade.php |   11 +
+ resources/views/dashboard.blade.php                |   69 +
+ resources/views/layouts/app.blade.php              |   30 +
+ resources/views/layouts/guest.blade.php            |   18 +
+ resources/views/layouts/navigation.blade.php       |   92 +
+ resources/views/welcome.blade.php                  |  132 +
+ routes/api.php                                     |   19 +
+ routes/auth.php                                    |   56 +
+ routes/channels.php                                |   18 +
+ routes/console.php                                 |   19 +
+ routes/web.php                                     |   16 +
+ server.php                                         |   21 +
+ storage/app/.gitignore                             |    3 +
+ storage/app/public/.gitignore                      |    2 +
+ storage/framework/.gitignore                       |    9 +
+ storage/framework/cache/.gitignore                 |    3 +
+ storage/framework/cache/data/.gitignore            |    2 +
+ storage/framework/sessions/.gitignore              |    2 +
+ storage/framework/testing/.gitignore               |    2 +
+ storage/framework/views/.gitignore                 |    2 +
+ storage/logs/.gitignore                            |    2 +
+ tailwind.config.js                                 |   20 +
+ tests/CreatesApplication.php                       |   22 +
+ tests/Feature/Auth/AuthenticationTest.php          |   45 +
+ tests/Feature/Auth/EmailVerificationTest.php       |   65 +
+ tests/Feature/Auth/PasswordConfirmationTest.php    |   44 +
+ tests/Feature/Auth/PasswordResetTest.php           |   71 +
+ tests/Feature/Auth/RegistrationTest.php            |   32 +
+ tests/Feature/ExampleTest.php                      |   21 +
+ tests/TestCase.php                                 |   10 +
+ tests/Unit/ExampleTest.php                         |   18 +
+ vite.config.js                                     |   11 +
+ webpack.mix.js                                     |   17 +
+ 136 files changed, 12870 insertions(+)
