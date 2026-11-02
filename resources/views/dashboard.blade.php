@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>MASOLO LABS - Clinical Nutrition</title>
+<title>MASOLO Labs LTD - Clinical Nutrition</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>.watermark{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-30deg);font-size:130px;opacity:0.04;font-weight:900;pointer-events:none;z-index:0;}</style>
@@ -11,8 +11,8 @@
 
 <div class="bg-white shadow p-4 flex justify-between items-center relative z-10">
 <div class="flex items-center gap-3">
-<img src="/masolo-health.jpeg" class="w-10 h-10 rounded-full object-cover border-2 border-yellow-600 shadow" alt="MASOLO LABS">
-<span class="font-black text-blue-700">MASOLO LABS</span>
+<img src="/masolo-health.jpeg" class="w-10 h-10 rounded-full object-cover border-2 border-yellow-600 shadow" alt="MASOLO Labs LTD">
+<span class="font-black text-blue-700">MASOLO Labs LTD</span>
 <div class="ml-10 flex gap-4 items-center">
 <a href="/dashboard" class="bg-blue-600 text-white px-5 py-1.5 rounded text-sm font-black">Dashboard</a>
 <a href="/children" class="px-2 py-1.5 text-sm font-black hover:text-blue-600">Lists</a>

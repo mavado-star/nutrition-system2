@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>MASOLO LABS - Register</title>
+<title>MASOLO Labs LTD - Register</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <style>.watermark{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-30deg);font-size:130px;opacity:0.04;font-weight:900;pointer-events:none;z-index:0;}</style>
 </head>
@@ -10,8 +10,8 @@
 
 <div class="bg-white shadow p-4 flex justify-between items-center relative z-10">
 <div class="flex items-center gap-3">
-<img src="/masolo-health.jpeg" class="w-10 h-10 rounded-full object-cover border-2 border-yellow-600 shadow" alt="MASOLO LABS">
-<span class="font-black text-blue-700">MASOLO LABS</span>
+<img src="/masolo-health.jpeg" class="w-10 h-10 rounded-full object-cover border-2 border-yellow-600 shadow" alt="MASOLO Labs LTD">
+<span class="font-black text-blue-700">MASOLO Labs LTD</span>
 <div class="ml-10 flex gap-4">
 <a href="/dashboard" class="px-2 py-1.5 text-sm font-black">Dashboard</a>
 <a href="/children" class="px-2 py-1.5 text-sm font-black">Lists</a>
@@ -88,8 +88,8 @@
 <div class="border-t-4 border-blue-700 bg-white rounded-xl shadow p-5 text-[11px] leading-relaxed">
 <div class="flex flex-col md:flex-row justify-between gap-4">
 <div>
-<p class="font-black text-blue-800 text-xs">© 2023-2025 MASOLO LABS LTD — ALL RIGHTS RESERVED</p>
-<p class="mt-1">This Clinical Nutrition System is Proprietary Software of <b>MASOLO LABS LTD</b>, Kampala, Uganda.</p>
+<p class="font-black text-blue-800 text-xs">© 2023-2025 MASOLO Labs LTD — ALL RIGHTS RESERVED</p>
+<p class="mt-1">This Clinical Nutrition System is Proprietary Software of <b>MASOLO Labs LTD</b>, Kampala, Uganda.</p>
 <p>Unauthorized copying, modification, distribution, or reverse-engineering is strictly prohibited under the Uganda Copyright Act 2006 & International Treaties.</p>
 <p class="mt-2 font-bold">Licensed To: Bweyogerere HC III Pilot | License ID: ML-BWEYO-2025-001</p>
 </div>
